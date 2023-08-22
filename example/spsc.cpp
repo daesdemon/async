@@ -34,7 +34,7 @@ struct awaitable_spsc_queue
   std::atomic<void*> reader{nullptr}, writer{nullptr};
 
   // capture the read & write executor
-  async::executor read_executor, write_executor;
+  boost::asio::any_io_executor read_executor, write_executor;
 
   // the awaitable to read a value from the queue
   struct read_op
